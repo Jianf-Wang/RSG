@@ -9,10 +9,10 @@ import json
 import numpy as np
 
 class Places(data.Dataset):
-    """Dataset class for the inaturalist dataset."""
+    """Dataset class for the Places dataset."""
 
     def __init__(self, image_dir, transform, mode):
-        """Initialize and preprocess the places dataset."""
+        """Initialize and preprocess the Places dataset."""
         self.image_dir = image_dir
         self.transform = transform
         self.mode = mode
@@ -36,7 +36,6 @@ class Places(data.Dataset):
         
 
     def preprocess(self):
-        """Preprocess the json file."""
         train_file = open(self.train_txt, "r")
         val_file = open(self.val_txt, "r")
         test_file = open(self.test_txt, "r")
