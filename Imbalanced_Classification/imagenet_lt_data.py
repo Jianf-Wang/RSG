@@ -36,7 +36,7 @@ class ImageNet_LT(data.Dataset):
         
 
     def preprocess(self):
-        """Preprocess the json file."""
+
         train_file = open(self.train_txt, "r")
         val_file = open(self.val_txt, "r")
         test_file = open(self.test_txt, "r")
