@@ -1,7 +1,7 @@
 ## RSG: A Simple but Effective Module for Learning Imbalanced Datasets (CVPR 2021)
 
-A Pytorch implementation of CVPR 2021 paper "RSG: A Simple but Effective Module for Learning Imbalanced Datasets". RSG (Rare-class Sample Generator) is a flexible module 
-designed for learning from imbalanced datasets. It can generate rare-class samples during training and can be combined with any convolutional neural networks.
+A Pytorch implementation of CVPR 2021 paper "RSG: A Simple but Effective Module for Learning Imbalanced Datasets". RSG (Rare-class Sample Generator) is a flexible module that can generate rare-class samples during training and can be combined with any backbone network. RSG is only used in the training phase, so it will not bring any additional burdens to the backbone network in the testing phase.
+
 
 How to use RSG in your own networks
 -----------------
@@ -39,7 +39,7 @@ out = self.layer3(out)
 
 ```
 
-The two loss, namely ''cesc_total'' and ''loss_mv_total'' will be returned and combined with cross-entropy loss for classification. More examples and details can be found in the models in the directory ''Imbalanced_Classification/models''.
+The two loss terms, namely ''cesc_total'' and ''loss_mv_total'', will be returned and combined with cross-entropy loss for backpropagation. More examples and details can be found in the models in the directory ''Imbalanced_Classification/models''.
 
 How to train the model
 -----------------
@@ -47,14 +47,14 @@ Some examples:
 
 Go into the "Imbalanced_Classification" directory.
 
-1. To re-implement the result of ResNet-32 on long-tailed CIFAR-10 ($\rho$ = 100) with RSG and LDAM-DRW:
+1. To reimplement the result of ResNet-32 on long-tailed CIFAR-10 ($\rho$ = 100) with RSG and LDAM-DRW:
 
 ```
 Export CUDA_VISIBLE_DEVICES=0,1
 python cifar_train.py --imb_type exp --imb_factor 0.01 --loss_type LDAM --train_rule DRW
 ```
 
-2. To re-implement the result of ResNet-32 on step CIFAR-10 ($\rho$ = 50) with RSG and Focal loss:
+2. To reimplement the result of ResNet-32 on step CIFAR-10 ($\rho$ = 50) with RSG and Focal loss:
 
 ```
 Export CUDA_VISIBLE_DEVICES=0,1
@@ -69,14 +69,12 @@ python inaturalist_train.py
 python places_train.py
 python imagenet_lt_train.py
 ```
-Note that for Places-LT or ImageNet-LT, the model is trained on the training set. The model that performs best on the validation set will be saved for testing.
+As for Places-LT or ImageNet-LT, the model is trained on the training set, and the best model on the validation set will be saved for testing.
 The "places_test.py" and 'imagenet_lt_test.py' are used for testing.
 
 
 Citation
 -----------------
-
-If you find that RSG is helpful, please cite our paper: 
 
 ```
 @inproceedings{Jianfeng2021RSG,
