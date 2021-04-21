@@ -39,7 +39,7 @@ out = self.layer3(out)
 
 ```
 
-The two loss, namely ''cesc_total'' and ''loss_mv_total'' will be returned and combined with cross-entropy loss for classification. More details can be found in the models in the directory ''Imbalanced_Classification/models''.
+The two loss, namely ''cesc_total'' and ''loss_mv_total'' will be returned and combined with cross-entropy loss for classification. More examples and details can be found in the models in the directory ''Imbalanced_Classification/models''.
 
 How to train the model
 -----------------
