@@ -43,7 +43,9 @@ The two loss, namely ''cesc_total'' and ''loss_mv_total'' will be returned and c
 
 How to train the model
 -----------------
-Examples:
+Some examples:
+
+Go into the "Imbalanced_Classification" directory.
 
 1. To re-implement the result of ResNet-32 on long-tailed CIFAR-10 ($\rho$ = 100) with RSG and LDAM-DRW:
 
