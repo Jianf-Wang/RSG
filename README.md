@@ -64,9 +64,6 @@ python cifar_train.py --imb_type step --imb_factor 0.02 --loss_type Focal --trai
 3. To train on iNaturalist 2018, Places-LT, or ImageNet-LT:
 
 ```
-Export CUDA_VISIBLE_DEVICES=0,1,2,3
-```
-```
 python inaturalist_train.py
 ```
 or
