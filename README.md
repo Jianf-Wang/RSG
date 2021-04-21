@@ -5,3 +5,82 @@ designed for learning from imbalanced datasets. It can generate rare-class sampl
 
 How to use RSG in your own networks
 -----------------
+1. Initialize RSG module:
+
+```
+from RSG import *
+
+# n_center: The number of centers, e.g., 15.
+# feature_maps_shape: The shape of input feature maps (channel, width, height), e.g., [32, 16, 16].
+# num_classes: The number of classes, e.g., 10.
+# contrastive_module_dim: The dimention of the contrastive module, e.g., 256.
+# head_class_lists: The index of head classes, e.g., [0, 1, 2].
+# transfer_strength: Transfer strength, e.g., 1.0.
+# epoch_thresh: The epoch index when rare-class samples are generated: e.g., 159.
+
+self.RSG = RSG(n_center = 15, feature_maps_shape = [32, 16, 16], num_classes=10, contrastive_module_dim = 256, head_class_lists = [0, 1, 2], transfer_strength = 1.0, epoch_thresh = 159)
+
+```
+
+2. Use RSG in the forward pass during training:
+
+```
+out = self.layer2(out)
+
+# feature_maps: The input feature maps.
+# head_class_lists: The index of head classes.
+# target: The label of samples.
+# epoch: The current index of epoch.
+
+if phase_train == True:
+    out, cesc_total, loss_mv_total, combine_target = self.RSG.forward(feature_maps = out, head_class_lists = [0, 1, 2], target = target, epoch = epoch)
+    
+out = self.layer3(out) 
+
+```
+
+The two loss, namely ''cesc_total'' and ''loss_mv_total'' will be returned and combined with cross-entropy loss for classification. More details can be found in the models in the directory ''Imbalanced_Classification/models''.
+
+How to train the model
+-----------------
+Examples:
+
+1. To re-implement the result of ResNet-32 on long-tailed CIFAR-10 ($\rho$ = 100) with RSG and LDAM-DRW:
+
+```
+Export CUDA_VISIBLE_DEVICES=0,1
+python cifar_train.py --imb_type exp --imb_factor 0.01 --loss_type LDAM --train_rule DRW
+```
+
+2. To re-implement the result of ResNet-32 on step CIFAR-10 ($\rho$ = 50) with RSG and Focal loss:
+
+```
+Export CUDA_VISIBLE_DEVICES=0,1
+python cifar_train.py --imb_type step --imb_factor 0.02 --loss_type Focal --train_rule None
+```
+
+3. To train on iNaturalist 2018, Places-LT, or ImageNet-LT:
+
+```
+Export CUDA_VISIBLE_DEVICES=0,1,2,3
+python inaturalist_train.py
+python places_train.py
+python imagenet_lt_train.py
+```
+Note that for Places-LT or ImageNet-LT, the model is trained on the training set. The model that performs best on the validation set will be saved for testing.
+The "places_test.py" and 'imagenet_lt_test.py' are used for testing.
+
+
+Citation
+-----------------
+
+If you find that RSG is helpful, please cite our paper: 
+
+```
+@inproceedings{Jianfeng2021RSG,
+  title = {RSG: A Simple but Effective Module for Learning Imbalanced Datasets},
+  author = {Jianfeng Wang and Thomas Lukasiewicz and Xiaolin Hu and Jianfei Cai and Zhenghua Xu},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2021}
+}
+```
