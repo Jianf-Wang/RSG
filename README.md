@@ -65,8 +65,16 @@ python cifar_train.py --imb_type step --imb_factor 0.02 --loss_type Focal --trai
 
 ```
 Export CUDA_VISIBLE_DEVICES=0,1,2,3
+```
+```
 python inaturalist_train.py
+```
+or
+```
 python places_train.py
+```
+or
+```
 python imagenet_lt_train.py
 ```
 As for Places-LT or ImageNet-LT, the model is trained on the training set, and the best model on the validation set will be saved for testing.
