@@ -38,7 +38,7 @@ parser.add_argument('-b', '--batch-size', default=256, type=int,
 parser.add_argument('--gpu', default=0, type=int,
                     help='GPU id to use.')
 parser.add_argument('--best_checkpoint', type=str, default='checkpoint_rsg/resnext50_32x4d/ckpt.best.pth.tar')
-parser.add_argument('--image_dir', type=str, default='/raid/D/ssd/imgfile/')
+parser.add_argument('--image_dir', type=str, default='/mnt/')
 parser.add_argument('--output_csv', type=str, default='./results.csv')
 
 def load_checkpoint(filepath):
