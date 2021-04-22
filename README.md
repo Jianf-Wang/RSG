@@ -40,7 +40,7 @@ How to use RSG in your own networks
 
 The two loss terms, namely ''cesc_total'' and ''loss_mv_total'', will be returned and combined with cross-entropy loss for backpropagation. More examples and details can be found in the models in the directory ''Imbalanced_Classification/models''.
 
-How to train the model
+How to train
 -----------------
 Some examples:
 
