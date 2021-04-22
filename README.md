@@ -62,7 +62,7 @@ Go into the "Imbalanced_Classification" directory.
 
 3. To run experiments on iNaturalist 2018, Places-LT, or ImageNet-LT:
 
-   Firstly, please prepare datasets and their corresponding list files. For the convenience, we provide the list files in the Google Drive and Baidu Disk. 
+   Firstly, please prepare datasets and their corresponding list files. For the convenience, we provide the list files in Google Drive and Baidu Disk. 
 
    <table><tbody>
    <!-- START TABLE -->
