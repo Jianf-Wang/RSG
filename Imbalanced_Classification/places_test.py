@@ -39,22 +39,18 @@ parser.add_argument('--gpu', default=0, type=int,
                     help='GPU id to use.')
 parser.add_argument('--best_checkpoint', type=str, default='checkpoint_rsg/Places_LT_resnet152/ckpt.best.pth.tar')
 parser.add_argument('--image_dir', type=str, default='/mnt/')
-parser.add_argument('--output_csv', type=str, default='./results.csv')
 
 def load_checkpoint(filepath):
     checkpoint = torch.load(filepath)
-    new_state_dict = OrderedDict()
-    for k, v in checkpoint['state_dict'].items():
-      name = k[7:] # remove `module.`
-      new_state_dict[name] = v
 
-    model = models.__dict__[args.arch](num_classes=365)
-    model.load_state_dict(new_state_dict)
+    model = models.__dict__[args.arch](num_classes=365, phase_train=False)
+    model.load_state_dict(checkpoint['state_dict'])
     for parameter in model.parameters():
         parameter.requires_grad = False
 
     model.eval()
     return model
+
 
 def shot_acc(train_class_count, test_class_count, class_correct, many_shot_thr=100, low_shot_thr=20):
     many_shot = []
@@ -106,7 +102,7 @@ if __name__ == "__main__":
     test_loader = torch.utils.data.DataLoader(
         test_dataset, batch_size=args.batch_size, shuffle=False, pin_memory=True)
     
-    file = open(args.output_csv ,'w')
+
     overall_acc = 0.0
     many_shot_overall = 0.0
     median_shot_overall = 0.0
