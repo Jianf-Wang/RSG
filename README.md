@@ -72,7 +72,7 @@ Go into the "Imbalanced_Classification" directory.
    <!-- TABLE BODY -->
    <tr>
    <td align="center"><a href="https://drive.google.com/file/d/1EjcTqoJMbj6EfvY-yt1eaeMdHzSYBCy-/view?usp=sharing">download</a></td>
-   <td align="center"><a href="https://pan.baidu.com/s/1gwP6qT9r_N7834IBaf4WTA">download</a>  (code: w63j)  </td>
+   <td align="center"><a href="https://pan.baidu.com/s/1A1m5927elxdmZwkaB9GGNQ">download</a>  (code: q3dk)  </td>
    </tr>
    </tbody></table>
 
