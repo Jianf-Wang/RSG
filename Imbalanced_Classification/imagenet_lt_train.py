@@ -66,7 +66,7 @@ best_acc1 = 0
 
 def main():
     args = parser.parse_args()
-    args.store_name = '_'.join(['iNaturalist', args.arch])
+    args.store_name = '_'.join(['ImageNet_LT', args.arch])
     prepare_folders(args)
     if args.seed is not None:
         random.seed(args.seed)
