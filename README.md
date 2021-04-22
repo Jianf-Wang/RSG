@@ -98,11 +98,11 @@ Go into the "Imbalanced_Classification" directory.
 Citation
 -----------------
 
-```
-@inproceedings{Jianfeng2021RSG,
-  title = {RSG: A Simple but Effective Module for Learning Imbalanced Datasets},
-  author = {Jianfeng Wang and Thomas Lukasiewicz and Xiaolin Hu and Jianfei Cai and Zhenghua Xu},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  year={2021}
-}
-```
+  ```
+  @inproceedings{Jianfeng2021RSG,
+    title = {RSG: A Simple but Effective Module for Learning Imbalanced Datasets},
+    author = {Jianfeng Wang and Thomas Lukasiewicz and Xiaolin Hu and Jianfei Cai and Zhenghua Xu},
+    booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+    year={2021}
+  }
+  ```
