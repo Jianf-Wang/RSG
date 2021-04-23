@@ -109,7 +109,7 @@ if __name__ == "__main__":
     correct_class = [0]*1000
 
     for i, (input, label) in enumerate(test_loader):
-         output = model(input.cuda(), phase='Test')
+         output = model(input.cuda(), phase_train=False)
          predict_ = torch.topk(output, 1, dim=1, largest=True, sorted=True, out=None)[1]
          predict = predict_.cpu().detach().squeeze()
          acc = mic_acc_cal(predict, label.cpu())
