@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from .utils import load_state_dict_from_url
 from .RSG import *
-from thop import profile
+
 __all__ = ['resnet50', 'resnet152', 'resnext50_32x4d']
 
 
