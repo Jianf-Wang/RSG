@@ -106,3 +106,7 @@ Citation
     year={2021}
   }
   ```
+  
+Other Tasks and Future Work
+-----------------
+RSG is designed for the long-tailed recognition task, such as the long-tailed object recognition task and the long-tailed face recognition task, and it cannot be used for object detection or semantic segmentation. So, it is also valuable to explore RSG for these two tasks.
